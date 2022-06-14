@@ -1,0 +1,3 @@
+#compdef cb
+
+eval "_arguments -s $(/Users/mrascioni/code/command-builder/cb completion $words)"

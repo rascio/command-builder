@@ -1,0 +1,35 @@
+hello-world:
+  description: "do something"
+  opts:
+    greet:
+      description: "How to greet"
+      type: enum
+      elements:
+        - Ciao
+        - Hello
+        - Hola
+        - Ni Hao
+    name:
+      type: text
+      description: Who should we greet?
+      default: World
+  exec: |
+    echo Let me do a greeting!
+    echo $greet $name
+debug:
+  description: WHAT?
+  opts:
+    afolder:
+      type: file
+      path: ~/Downloads
+      pattern: '*.xml'
+  flags:
+    a-flag:
+      description: enable ciccio
+      values:
+        ciccio: true
+  exec: |
+    local t=prova
+    echo Vars $ciccio $t
+    tree ~/$afolder
+    echo DONE
