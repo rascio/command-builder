@@ -1,5 +1,5 @@
 hello-world:
-  description: "do something"
+  description: do something
   opts:
     greet:
       description: "How to greet"
