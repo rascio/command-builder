@@ -22,12 +22,13 @@ arguments-showcase:
   description: Examples of various 'opts' and 'flags'
   opts:
     afolder:
+      description: Pick a folder from your home (~/)
       type: folder
       path: ~/
     afile:
+      description: Pick a go file from current folder
       type: file
-      path: ~/
-      pattern: '*.xml'
+      pattern: '*.go'
   flags:
     verbose:
       description: Verbose output

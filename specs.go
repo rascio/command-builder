@@ -57,7 +57,11 @@ func (self OptSpec) toArgumentSpec(name string) string {
 	case Text:
 		// do nothing
 	case Enum:
-		builder.WriteString(fmt.Sprintf(":(%s)", strings.Join(self.Elements, " ")))
+		elements := make([]string, len(self.Elements))
+		for i := 0; i < len(self.Elements); i++ {
+			elements[i] = strings.ReplaceAll(self.Elements[i], " ", "\\ ")
+		}
+		builder.WriteString(fmt.Sprintf(":(%s)", strings.Join(elements, " ")))
 	case File:
 		builder.WriteString(":_files")
 		if len(self.Path) > 0 {
