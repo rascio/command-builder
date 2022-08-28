@@ -1,5 +1,7 @@
-hello-world:
-  description: do something
+greeting:
+  description: |
+    Greeting utility.
+    Let your terminal greets you.
   opts:
     greet:
       description: "How to greet"
@@ -16,20 +18,28 @@ hello-world:
   exec: |
     echo Let me do a greeting!
     echo $greet $name
-debug:
-  description: WHAT?
+arguments-showcase:
+  description: Examples of various 'opts' and 'flags'
   opts:
     afolder:
+      type: folder
+      path: ~/
+    afile:
       type: file
-      path: ~/Downloads
+      path: ~/
       pattern: '*.xml'
   flags:
-    a-flag:
-      description: enable ciccio
+    verbose:
+      description: Verbose output
       values:
-        ciccio: true
+        text: The verbose flag was set, so the 'text' variable will be present in the script execution
   exec: |
-    local t=prova
-    echo Vars $ciccio $t
+    cat $afile
+    echo $afolder
     tree ~/$afolder
+    if [ ! -z "$text" ]
+    then
+      echo "Verbose mode on"
+      echo $text
+    fi
     echo DONE
